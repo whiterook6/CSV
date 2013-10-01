@@ -1,0 +1,204 @@
+body {
+	
+	font-family: 'DIN-light', 'DINPro-Light', sans-serif;
+	background-color: #eeeeee;
+}
+
+#main_div {
+	margin: 0px auto;
+	width: 1250px;
+}
+
+#search {
+	width: 500px;
+	margin: 5px auto;
+	display: block;
+
+	border: 1px solid #ccc;
+	font-size: xx-large;
+	font-family: 'DIN-regular';
+	outline: none;
+	padding: 2px;
+}
+
+#cards {
+	width: 100%;
+}
+
+.card {
+	width: 244px;
+	background-color: #444;
+	border: 2px solid #333;
+	border-radius: 2px;
+	margin: 1px;
+	padding: 0px;
+	color: #fff;
+	box-shadow: 0 0 3px #333;
+}
+
+.wide_card {
+	width: 494px;
+}
+
+.widest_card {
+	width: 744px;
+}
+
+.card_header {
+	width: 100%;
+	background-image: url("../images/stripe_grey.png");
+	padding-bottom: 2px;
+	font-family: 'DIN-regular';
+	font-variant:small-caps;
+	font-size: large;
+}
+
+.power .card_header {
+	background-image: url("../images/stripe_red.png");
+}
+
+.feat .card_header {
+	background-image: url("images/stripe_blue.png");
+}
+
+.quest .card_header {
+	background-image: url("../images/stripe_purple.png");	
+}
+
+.magicItem .card_header {
+	background-image: url("../images/stripe_green.png");	
+}
+
+table {
+	width: 100%;
+	border-spacing: 1px;
+}
+
+td {
+	padding: 2px;
+}
+
+td.label {
+	text-align: right;
+}
+
+td.value {
+	font-weight: bold;
+	background-color: #555;
+	text-align: left;
+	overflow: hidden;
+}
+
+ul {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+
+li {
+	padding: 2px;
+	margin: 1px;
+}
+
+ul.list li {
+	background-color: #555;
+}
+
+
+/* Power LI headers */
+li.effect::before {
+	font-weight: bold;
+	content: 'Effect: ';
+}
+
+li.trigger::before {
+	font-weight: bold;
+	content: 'Trigger: ';
+}
+
+li.summary::before {
+	font-weight: bold;
+	content: 'Summary: ';
+}
+
+li.attack::before {
+	font-weight: bold;
+	content: 'Attack: ';
+}
+
+li.check::before {
+	font-weight: bold;
+	content: 'Check: ';
+}
+
+li.success::before {
+	font-weight: bold;
+	content: 'Success: ';
+}
+
+li.hit::before {
+	font-weight: bold;
+	content: 'Hit: ';
+}
+
+li.crit::before {
+	font-weight: bold;
+	content: 'Crit: ';
+}
+
+li.miss::before {
+	font-weight: bold;
+	content: 'Miss: ';
+}
+
+li.hitEffect::before {
+	font-weight: bold;
+	content: 'Hit Effect: ';
+}
+
+li.missEffect::before {
+	font-weight: bold;
+	content: 'Miss Effect: ';
+}
+
+li.criticalHit::before {
+	font-weight: bold;
+	content: 'Critical Hit: ';
+}
+
+li.weapon::before {
+	font-weight: bold;
+	content: 'Weapon: ';
+}
+
+li.special::before {
+	font-weight: bold;
+	content: 'Special: ';
+}
+
+span.precondition {
+	padding: 2px 1px 0px 1px;
+	margin: 2px;
+	background-color: #555;
+	border-radius: 3px;
+	display: inline-block;
+	border-left: 2px solid #09c;
+}
+
+span.tag {
+	padding: 2px 1px 0px 1px;
+	margin: 2px;
+	background-color: #555;
+	border-radius: 3px;
+	display: inline-block;
+	border-left: 2px solid #f80;
+}
+
+span.keyword {
+	padding: 2px 1px 0px 1px;
+	margin: 2px;
+	background-color: #555;
+	border-radius: 3px;
+	display: inline-block;
+	border-left: 2px solid #c00;
+}

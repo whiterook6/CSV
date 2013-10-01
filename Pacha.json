@@ -1,0 +1,754 @@
+{
+    "Abilities": {
+        "Charisma": 18,
+        "Constitution": 14,
+        "Dexterity": 11,
+        "Intelligence": 9,
+        "Strength": 15,
+        "Wisdom": 21
+    },
+    "Agility": {
+        "Initiative": 7,
+        "Speed": 5
+    },
+    "Defenses": {
+        "AC": 28,
+        "Fortitude": 19,
+        "Reflex": 17,
+        "Will": 27
+    },
+    "Details": {
+        "Age": "58",
+        "Company": "The Merchants of Mayhem",
+        "Gender": "Male",
+        "Height": "6'",
+        "Level": "14",
+        "Player": "Tim Graboski",
+        "Weight": "200lbs",
+        "Paragon Path": "Messenger of Peace"
+    },
+    "Feats": [
+        {
+            "Name": "Healer's Lore",
+            "Short Description": "When you let an ally spend a healing surge, she gains an additional 4 hit points."
+        },
+        {
+            "Name": "Group Diplomacy",
+            "Short Description": "Allies within 10 tiles get +1 to Diplomacy."
+        },
+        {
+            "Name": "Defensive Healing Word",
+            "Short Description": "When you use Healing Word, the target also gains +3 to all defenses against the next attack made against him before the end of your next turn."
+        },
+        {
+            "Name": "Pacifist Healer",
+            "Short Description": "When you use a divine power that allows a target to spend a healing surge, the target regains 2d6 + 3 additional hit points. If you hit or miss a bloodied enemy and deal damage to it, you are stunned until next turn's end."
+        },
+        {
+            "Name": "Unfailing Vigor",
+            "Short Description": "You can spend a healing surge if you roll 18-20 on death saving throw."
+        },
+        {
+            "Name": "Combat Medic",
+            "Short Description": "Stabilize the Dying is a minor action. You gain +2 to Heal checks."
+        },
+        {
+            "Name": "Versatile Expertise",
+            "Short Description": "You gain +2 to attack roles made with a mace or holy symbol."
+        },
+        {
+            "Name": "Superior Will",
+            "Short Description": "You gain a +3 bonus to Will. If you are stunned or dazed, you can make a saving throw at the beginning of your turn to end that effect, even if the effect doesn’t normally end on a save."
+        },
+        {
+            "Name": "Interrogator",
+            "Short Description": "You gain a +2 bonus to checks involving interrogation."
+        },
+        {
+            "Name": "Healer's Implement",
+            "Short Description": "When you let a creature spend a healing surge to regain hit points with any of your cleric healing powers, that creature regains an additional 3 hit points."
+        },
+        {
+            "Name": "Peacemaker's Action",
+            "Short Description": "When you spend an action point to make an attack, you gain a +4 bonus to attack rolls with attacks that don't deal damage. The bonus lasts until the end of your turn."
+        },
+        {
+            "Name": "Vow of Nonviolence",
+            "Short Description": "When you hit with an attack that doesn't deal damage, you gain a +2 bonus to all defenses until the start of your next turn."
+        },
+        {
+            "Name": "Gambler's Word",
+            "Short Description": "Once per encounter, gain another use of your healing word when you score a critical hit."
+        },
+        {
+            "Name": "Versatile Master",
+            "Short Description": "You can use the power you chose through your Dilettante racial trait as an at-will power. You can also spend an action point to regain the use of an encounter attack power that you have already used during this encounter, instead of taking an extra action."
+        }
+    ],
+    "Health": {
+        "Healing Surges": 9,
+        "Hit Points": 91
+    },
+    "Items": {
+        "Adventurer's Kit": "1, less the rope",
+        "Autopsy Kit": 1,
+        "Dress Uniform": "1 (includes cape)",
+        "Silver Eagle Badge": 1,
+        "Ritual Book": "1, 6 rituals.",
+        "Ritual Components": "100GP",
+        "Bag of Hold Nuggets": "1, hidden",
+        "Phial of Residuum": "1, impure",
+        "Phial of Gold Dust": "1",
+        "Poison": "1 use",
+        "Fine Clothing": "1 outfit",
+        "Hydra Fangs": 2,
+        "Raven's Feather": "1, to the Shadowfell",
+        "Jacket": "1, winter",
+        "Phials": 5,
+        "Rations": "8 days",
+        "Gold": 13637
+    },
+    "Liquor": {
+        "Dwarven Whisky": "5 bottles, wicked old",
+        "Regular Whisky": "4 bottles, 1 gourd",
+        "Pimp Cup" : 1
+    },
+    "Magic Items": [
+        {
+            "Critical": "+1d6 damage per plus",
+            "Enhancement": "+2 attack rolls and damage rolls",
+            "Flavor": "This symbol is engraved with several rings linked in a circle, representing the interdependence of you and your comrades.",
+            "Gold": "4200",
+            "Implement": "Holy Symbol",
+            "Item Slot": "Off-Hand",
+            "Level": "9",
+            "Magic Item Type": "Holy Symbol",
+            "Name": "Symbol of Unified Defense +2",
+            "Power": "Power * Daily (Immediate Interrupt) Trigger: An enemy targets you and at least one ally with an attack. Effect: You and your allies' defense against the triggering enemy's attack is the highest appropriate score among all of you being attacked. For example, if the attack is against Reflex and the highest Reflex among you and your allies is 25, you all have Reflex 25 against the attack.",
+            "Type": "Magic Item"
+        },
+        {
+            "Armor": "Any",
+            "Enhancement": "+3 AC",
+            "Flavor": "This shirt of glimmering chainmail fortifies those who take bold action in battle.",
+            "Gold": "13000",
+            "Level": "12",
+            "Magic Item Type": "Armor",
+            "Name": "Hero's Armor +3",
+            "Power": "Power * Daily (Free Action) Trigger: You spend an action point. Effect: You forgo the bonus to all defenses granted by the armor's property. Instead, an ally within 5 squares of you uses his or her second wind as a free action.",
+            "Property": "When you spend an action point to take an extra action, you also gain a +2 bonus to all defenses until the end of your next turn.",
+            "Type": "Magic Item"
+        },
+        {
+            "Critical": "+1d6 damage per plus",
+            "Enhancement": "+3 attack rolls and damage rolls",
+            "Flavor": "Healers who wield this weapon relish combat and enjoy healing their allies while attacking their enemies.",
+            "Gold": "13000",
+            "Level": "12",
+            "Magic Item Type": "Weapon",
+            "Name": "Holy Healer's Weapon +3",
+            "Power": "Power (Healing) * Daily (Minor Action) An ally within 5 squares of you can spend a healing surge to regain hit points equal to 15 + your Wisdom modifier.",
+            "Property": "Add this weapon's enhancement bonus to the amount healed by your healing word.",
+            "Type": "Magic Item",
+            "Weapon": "Mace, Staff"
+        }
+    ],
+    "Powers": [
+        {
+            "Action": "Standard",
+            "Skill": "Strength",
+            "Defense": "AC",
+            "Range": "Melee",
+            "Frequency": "At-Will",
+            "Attack": "+16 vs. AC",
+            "Hit": "1d8+6 damage",
+            "CriticalHit": "14+3d6 damage",
+            "Flavor": "You resort to the simple attack you learned when you first picked up a melee weapon.",
+            "Keywords": [
+                "Weapon"
+            ],
+            "Tags" : ["Damaging"],
+            "Name": "Melee Basic Attack",
+            "Target": "One creature",
+            "Weapon": "Holy Healer's Mace +3"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Dexterity",
+            "Defense": "AC",
+            "Range": "Ranged weapon",
+            "Frequency": "At-Will",
+            "Attack": "+7 vs. AC",
+            "Hit": "1d4 damage",
+            "CriticalHit": "4 damage",
+            "Flavor": "You resort to the simple attack you learned when you first picked up a ranged weapon.",
+            "Keywords": [
+                "Weapon"
+            ],
+            "Tags" : ["Damaging"],
+            "Name": "Ranged Basic Attack",
+            "Target": "One creature",
+            "Weapon": "Unarmed"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Will",
+            "Range": "Close blast 3",
+            "Frequency": "At-Will",
+            "Attack": "+16 vs. Will",
+            "Hit": "1d6 + 7 Psychic damage",
+            "CriticalHit": "13 Psychic damage + 2d6 damage",
+            "Flavor": "The images of carnage and death that you invoke sow doubt in your enemies.",
+            "HitEffects": ["The target takes a -1 penalty to all defenses until the start of your next turn."],
+            "Keywords": [
+                "Divine",
+                "Fear",
+                "Implement",
+                "Psychic"
+            ],
+            "Tags" : ["Debuffing", "Damaging"],
+            "Name": "Visions of Blood",
+            "Target": "Each creature in the blast",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Minor",
+            "Range": "Close burst 10",
+            "Frequency": "Encounter",
+            "Effects": ["The target can spend a healing surge and regain 5d6 + 12 additional hit points.", "The target gains +3 to all defenses against the next attack made against him before the end of your next turn."],
+            "Flavor": "You utter a soothing word that mends wounds of the body and spirit.",
+            "Keywords": [
+                "Healing"
+            ],
+            "Tags" : ["Healing", "Buffing", "Peacemaker's Pronouncement", "Beacon of Hope"],
+            "Name": "Healing Word",
+            "Special": ["You can use this power twice per encounter, but only once per round."],
+            "Target": "You or one ally in the burst"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Reflex",
+            "Range": "Ranged 5",
+            "Frequency": "At-Will",
+            "Attack": "+16 vs. Reflex",
+            "Hit": "1d6+7 Radiant damage",
+            "CriticalHit": "13 radiant damange + 2d6 damage",
+            "Flavor": "You bathe your enemy in sacred light, searing it in radiance. You call out to one of your comrades, invigorating him or her with the sight of holy power.",
+            "HitEffects": ["One ally you can see chooses either to make a saving throw or gain 8 temporary hit points."],
+            "Keywords": [
+                "Divine",
+                "Implement",
+                "Radiant"
+            ],
+            "Tags" : ["Damaging", "Healing", "Saving Throws"],
+            "Name": "Sacred Flame",
+            "Target": "One creature",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Free",
+            "Frequency": "Encounter",
+            "Flavor": "You dig into your resolve to find an extra burst of vitality.",
+            "Effects": ["You spend a healing surge and gain a +2 bonus to all defenses until the start of your next turn."],
+            "Keywords": [
+                "Healing"
+            ],
+            "Target": "Personal",
+            "Name": "Second Wind"
+        },
+        {
+            "Action": "Free",
+            "Frequency": "Daily",
+            "Trigger": "You spend an action point.",
+            "Effects": ["You forgo the bonus to defenses granted by the armor's property. Instead, an ally within 5 tiles of you uses his second wind as a free action."],
+            "Keywords": [
+                "Magic Item"
+            ],
+            "Tags" : ["Healing"],
+            "Name": "Hero's Armor"
+        },
+        {
+            "Action": "Immediate Interrupt",
+            "Frequency": "Daily",
+            "Trigger": "An enemy targets you and at least one ally with an attack.",
+            "Effects": ["You and the allies' defense against the triggering enemy's attack is the highest appropriate score among those being attacked."],
+            "Keywords": [
+                "Magic Item"
+            ],
+            "Tags" : ["Buffing"],
+            "Name": "Symbol of Unified Defense"
+        },
+        {
+            "Action": "Minor",
+            "Frequency": "Daily",
+            "Effects": ["An ally within 5 tiles of you can spend a healing surge to regain 15 hit points."],
+            "Keywords": [
+                "Magic Item"
+            ],
+            "Tags" : ["Healing"],
+            "Name": "Holy Healer's Weapon"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Fortitude",
+            "Range": "Close blast 5",
+            "Frequency": "Encounter",
+            "Attack": "+16 vs Fortitude",
+            "CriticalHit": "2d6 damage",
+            "Effects": ["Each ally in the burst can choose either to gain 5 temporary hit points or to make a saving throw."],
+            "Flavor": "Your foes' resolve crumbles as your hymn bestows divine vigor on your allies.",
+            "HitEffects": ["The target takes a -2 penalty to all defenses until the end of your next turn.", "When any ally hits the target before the end of your next turn, the target is knocked prone."],
+            "Keywords": [
+                "Divine",
+                "Implement"
+            ],
+            "Tags" : ["Debuffing", "Healing", "Saving Throws", "Peacemaker's Pronouncement"],
+            "Name": "Hymn of Resurgence",
+            "Target": "Each enemy in the blast",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Reflex",
+            "Range": "Ranged 10",
+            "Frequency": "Daily",
+            "Attack": "+16 vs. Reflex",
+            "CriticalHit": "2d6 damage",
+            "Flavor": "Tracing runes of denial in the air, you cause your foe's weapons to become as brittle as glass.",
+            "HitEffects": ["Until the end of the encounter, the target takes a -4 penalty to melee damage rolls.", "Whenever the target hits with a melee attack, the penalty worsens by 2 to a maximum of -10."],
+            "Keywords": [
+                "Divine",
+                "Implement"
+            ],
+            "MissEffects": ["Half Penalties."],
+            "Tags" : ["Debuffing"],
+            "Name": "Iron to Glass",
+            "Target": "One enemy",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Minor",
+            "Frequency": "Daily",
+            "Effects": ["You take ongoing 5 damage (save ends), which cannot be reduced in any way. You can choose each turn whether to make a saving throw against this ongoing damage. Whenever you take the ongoing damage, an ally within 5 tiles regains 15 hit points."],
+            "Flavor": "Your life energy flows into a companion and grants your friend the vigor to fight on.",
+            "Keywords": [
+                "Divine",
+                "Healing"
+            ],
+            "Tags" : ["Healing", "Beacon of Hope"],
+            "Name": "Stream of Life",
+            "Target": "Personal",
+            "Weapon": "Unarmed"
+        },
+        {
+            "Action": "Standard",
+            "Frequency": "Daily",
+            "Range": "Melee",
+            "Check": "19 vs. DC",
+            "Success": "The creature loses 12 points.",
+            "Special": ["If the damage reduces the creature to 0 hit points or exceeds its bloodied value, it dies painlessly.", "When out of combat, the DC is reduced and successful checks always kill the target."],
+            "Flavor": "Your teammates turn away as you end a creature's suffering.",
+            "Keywords": [
+                "Divine"
+            ],
+            "Tags" : ["Death"],
+            "Name": "Euthanasia",
+            "Target": "One helpless or willing creature",
+            "Weapon": "Unarmed"
+        },
+        {
+            "Action": "Standard",
+            "Frequency": "Daily",
+            "Range": "Melee Touch",
+            "Check": "21 vs. DC (Physical) or 13 vs. DC (Psychological)",
+            "Success": "You torture the target and force it to yield information or to submit to some order.",
+            "Special": ["You must drink a bottle of whisky and spend a healing surge.", "There must be no other way."],
+            "Effects": ["You and any witnesses are permanently scarred."],
+            "Flavor": "You rely on a lifetime of very specialized training to extract information from an otherwise unwilling opponent.",
+            "Keywords": [
+                "Torture"
+            ],
+            "Name": "Interrogation",
+            "Target": "One creature",
+            "Weapon": "Various"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Will",
+            "Range": "Close burst 3",
+            "Frequency": "Daily",
+            "Attack": "+16 vs. Will",
+            "CriticalHit": "2d6 damage",
+            "Effects": ["You and each ally in the burst regain 5 hit points.", "Until the end of the encounter, whenever you restore hit points with a healing power, the recipient regains 5 additional hit points."],
+            "Flavor": "You release a burst of divine energy that weakens your foes even as it heals your allies. The energy lingers within your holy symbol for a short time, improving your ability to heal your allies.",
+            "HitEffects": ["The target is weakened until the end of its next turn."],
+            "Keywords": [
+                "Divine",
+                "Healing",
+                "Implement"
+            ],
+            "Tags" : ["Healing", "Debuffing"],
+            "Name": "Beacon of Hope",
+            "Target": "Each enemy in the burst",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Will",
+            "Range": "Ranged 10",
+            "Frequency": "Daily",
+            "Attack": "+16 vs. Will",
+            "CriticalHit": "2d6 damage",
+            "Flavor": "With a fervent prayer, you purge all thoughts of battle from your enemy's mind.",
+            "HitEffects": ["The target cannot attack (save ends).", "Until you or any ally attacks the target, it takes a -5 penalty to saving throws against this effect."],
+            "Keywords": [
+                "Divine",
+                "Implement"
+            ],
+            "MissEffects": ["The target cannot attack until the end of your next turn."],
+            "Tags" : ["Damaging", "Peacemaker's Pronouncement"],
+            "Name": "Rebuke Violence",
+            "Target": "One creature",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Standard",
+            "Range": "Close burst 5",
+            "Frequency": "Encounter",
+            "Channel Divinity": "You can use only one channel divinity power per encounter",
+            "Effects": ["Each target can spend a healing surge and regain an additional 2d6 + 9 hit points.","You are weakened until the end of your next turn and can do only half damage."],
+            "Flavor": "Strength flows out from you to your injured comrades, rekindling their resolve to see the battle to its end.",
+            "Keywords": [
+                "Divine",
+                "Healing"
+            ],
+            "Tags" : ["Healing", "Peacemaker's Pronouncement"],
+            "Name": "Healer's Mercy",
+            "Target": "Each bloodied ally in the burst",
+            "Weapon": "Unarmed"
+        },
+        {
+            "Action": "Standard",
+            "Range": "Close burst 5",
+            "Frequency": "Daily",
+            "Effects": ["Each target regains hit points as if he or she had spent a healing surge.", "Each target gains a +2 power bonus to attack rolls until the end of your next turn."],
+            "Flavor": "You turn the tide of battle by healing allies near you and filling them with courage.",
+            "Keywords": [
+                "Divine",
+                "Healing"
+            ],
+            "Tags" : ["Healing", "Buffing", "Peacemaker's Pronouncement", "Beacon of Hope"],
+            "Name": "Battle Surge",
+            "Target": "You and each ally in the burst",
+            "Weapon": "Unarmed"
+        },
+        {
+            "Action": "Immediate Interrupt",
+            "Attack Type": "Ranged 20",
+            "Frequency": "Daily",
+            "Effects": ["The target succeeds on the death saving throw, and can spend a healing surge and regain an additional 2d6 + 9 hit points."],
+            "Flavor": "You snatch an ally from the brink of death.",
+            "Keywords": [
+                "Divine",
+                "Healing"
+            ],
+            "Tags" : ["Beacon of Hope", "Life"],
+            "Name": "Return from Death's Door",
+            "Target": "The triggering ally",
+            "Trigger": "An ally within 20 squares of you fails a death saving throw",
+            "Weapon": "Unarmed"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Will",
+            "Range": "Ranged 5",
+            "Frequency": "Encounter",
+            "Attack": "+16 vs. Will",
+            "CriticalHit": "2d6 damage",
+            "Flavor": "Your words make your foe think twice before resorting to violence.",
+            "HitEffects": ["If the target hits or misses with an attack before the start of your next turn, it is stunned until the end of its next turn."],
+            "Keywords": [
+                "Divine",
+                "Implement"
+            ],
+            "Tags" : ["Debuffing"],
+            "Name": "Pacify",
+            "Target": "One creature",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Minor",
+            "Range": "Close burst 3",
+            "Frequency": "Encounter",
+            "Effects": ["The next time the target misses with an attack roll before the end of your next turn, it can reroll that attack roll. It must use the new result, even if it is lower."],
+            "Flavor": "When luck runs against you, you beseech the gods for aid to turn chance in your favor.",
+            "Keywords": [
+                "Channel Divinity",
+                "Divine"
+            ],
+            "Tags" : ["Buffing", "Peacemaker's Pronouncement"],
+            "Name": "Favor of the Gods",
+            "Special": ["You can use only one channel divinity power per encounter."],
+            "Target": "One creature in the burst"
+        },
+        {
+            "Action": "Minor",
+            "Range": "Close burst 5",
+            "Frequency": "Encounter",
+            "Effects": ["One effect on the target that would otherwise end at the end of your current turn instead lasts until the end of your next turn."],
+            "Flavor": "At your word, an enemy's punishment or a friend's blessing continues.",
+            "Keywords": [
+                "Divine"
+            ],
+            "Name": "Peacemaker's Pronouncement",
+            "Target": "One creature in the burst"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Will",
+            "Range": "Burst 1 within 5",
+            "Frequency": "Encounter",
+            "Attack": "+16 vs. Will",
+            "CritDamage": "2d6 damage",
+            "Effects": ["Each ally in the burst can spend a healing surge."],
+            "Flavor": "Your words of reproach cause your foes to hesitate as they regret their violent acts.",
+            "HitEffects": ["Until the end of your next turn, the target gains vulnerable 10 to all damage and is dazed."],
+            "Keywords": [
+                "Divine",
+                "Healing",
+                "Implement"
+            ],
+            "Tags" : ["Debuffing", "Healing", "Peacemaker's Pronouncement"],
+            "Name": "Remorse",
+            "Target": "Each enemy",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Reflex",
+            "Range": "Ranged 5",
+            "Frequency": "At-Will",
+            "Attack": "+18 vs. Reflex",
+            "CriticalHit": "2d6 damage",
+            "Flavor": "You outline your enemy with the silver glow of the Astral Sea, and its healing light bathes your friend.",
+            "HitEffects": ["Until the end of your next turn, the target takes a -2 penalty to all defenses.", "The next ally who hits it before the end of your next turn regains 5 hit points."],
+            "Keywords": [
+                "Divine",
+                "Healing",
+                "Implement"
+            ],
+            "Tags" : ["Beacon of Hope", "Peacemaker's Pronouncement", "Healing", "Debuffing"],
+            "Name": "Astral Seal",
+            "Target": "One creature",
+            "Weapon": "Symbol of Unified Defense +2"
+        },
+        {
+            "Action": "Standard",
+            "Range": "Ranged 5",
+            "Frequency": "Encounter",
+            "Effects": ["The target grants combat advantage until the end of your next turn", "Your allies gain +5 to damage rolls against the target until the end of your next turn.", "The next ally who misses the target before the end of your next turn can reroll the attack."],
+            "Flavor": "A glimpse into your enemy's future allows you to guide your allies' attacks with incredible precision.",
+            "Keywords": [
+                "Divine"
+            ],
+            "Name": "Prophetic Guidance",
+            "Target": "One enemy"
+        }
+    ],
+    "Rituals": [
+        {
+            "Category": "Warding",
+            "Component Cost": "10 gp",
+            "Description": " You ward writings so others cannot read them. Use of this ritual protects one page (maximum 250 words). You make the page appear not to exist, causing anyone other than you to ignore it; the page's presence is blocked from a reader's mind. You can choose instead to obscure the page with false writings, which you produce before performing the ritual. Other readers see the false text rather than the real text. When you perform the ritual, make an Arcana check, with a +5 bonus. The result is the DC for a Perception check to notice the concealed writing (readers use passive Perception unless they are specifically looking for concealed text). ",
+            "Duration": "Permanent",
+            "Flavor": "You laugh through your broken teeth. The duke's impersonator might have found your journal, but he'll never see what you wrote there.",
+            "Key Skill": "Arcana",
+            "Level": "1",
+            "Market Price": "50 gp",
+            "Name": "Secret Page",
+            "Time": "10 minutes",
+            "Type": "Ritual"
+        },
+        {
+            "Category": "Restoration",
+            "Component Cost": "10 gp",
+            "Description": " This ritual is performed on an adjacent corpse. It quintuples the time the corpse can lie dead and still be affected by Raise Dead or a similar ritual. Gentle Repose also protects the corpse from being raised as an undead creature for 150 days. ",
+            "Duration": "Special",
+            "Flavor": "Your practiced hands perform the ritual fast enough to preserve the body for a later casting of Raise Dead.",
+            "Key Skill": "Heal (no check)",
+            "Level": "1",
+            "Market Price": "50 gp",
+            "Name": "Gentle Repose",
+            "Time": "1 hour",
+            "Type": "Ritual"
+        },
+        {
+            "Category": "Exploration",
+            "Component Cost": "10 gp",
+            "Description": " You purify a volume of water. The amount of water you can purify is determined by the result of your Arcana check, Nature check, or Religion check. <table>Skill Check Result Amount of Water 9 or lower 1 square 10-19 2 squares 20-34 4 squares 35 or higher 10 squares</table> ",
+            "Duration": "Instantaneous",
+            "Flavor": "The lake, tainted by a now-dead demon that laired in its depths, becomes crystal clear and refreshing to drink.",
+            "Key Skill": "Arcana or Nature or Religion",
+            "Level": "1",
+            "Market Price": "50 gp",
+            "Name": "Purify Water",
+            "Time": "10 minutes",
+            "Type": "Ritual"
+        },
+        {
+            "Category": "Exploration",
+            "Component Cost": "35 gp",
+            "Description": " You invoke your dedication to your god and let it wash your fatigue and needs from you. Iron Vigil fulfills your body's need for food and water when you perform it and allows you to remain aware and alert while taking an extended rest anytime during the ritual's duration. ",
+            "Duration": "8 hours",
+            "Flavor": "Meditation and prayer are all the sustenance you need.",
+            "Key Skill": "Religion (no check)",
+            "Level": "4",
+            "Market Price": "170 gp",
+            "Name": "Iron Vigil",
+            "Time": "10 minutes",
+            "Type": "Ritual"
+        },
+        {
+            "Category": "Creation",
+            "Component Cost": "150 gp",
+            "Description": " You imbue a humanoid corpse of natural origin and Medium or smaller size with the ability to move under its own power and an understanding of one language of your choice. It has speed 6 and Strength 16, never tires, and obeys you at all times. The undead servitor is a noncombatant. When forced onto an active battlefield, treat the servitor as an allied minion (1 hit point, never damaged on a missed attack) with all defenses of 11. It acts just after you do and never makes attacks. You cannot have more than one undead servitor at a time from different performances of this ritual. If you attempt to create a second servitor, that ritual fails without component expenditure. ",
+            "Duration": "Permanent",
+            "Flavor": "The corpse shudders, then clambers to its feet. At your direction, it shoulders your gear and lumbers after you.",
+            "Key Skill": "Arcana (no check)",
+            "Level": "6",
+            "Market Price": "360 gp",
+            "Name": "Undead Servitor",
+            "Time": "1 hour",
+            "Type": "Ritual"
+        },
+        {
+            "Category": "Scrying",
+            "Component Cost": "250 gp",
+            "Description": " You are able to perceive the environment around an animate undead creature. The target creature must be within 5 squares of you during the entire time necessary to perform the ritual. For the ritual's duration, you can spend a standard action to use the affected creature's senses. You use your Perception modifier when you do so. While sensing through the undead, you cannot use your own senses and are considered blind and deaf. You can end the effect as a free action. If the undead creature is destroyed, the ritual ends immediately. Your Arcana check determines the maximum distance at which you can receive sensory input from the target creature. <table>Arcana Check Result Duration 19 or lower 1 mile 20-29 3 miles 30-39 6 miles 40 or higher 10 miles</table> Sufficiently powerful warding magic (such as a Forbiddance ritual) prevents you from receiving sensory input from a creature as long as it is within the warded area. Treat the undead creature as a scrying sensor for such purposes. ",
+            "Duration": "24 hours",
+            "Flavor": "You recite a funeral dirge, infusing a zombie with necromantic energy. Now, you can spy through the eyes of your undead minion.",
+            "Key Skill": "Arcana",
+            "Level": "8",
+            "Market Price": "680 gp",
+            "Name": "Gravesight",
+            "Time": "30 minutes",
+            "Type": "Ritual"
+        }
+    ],
+    "Senses": {
+        "Passive Insight": 29,
+        "Passive Perception": 22
+    },
+    "Skills": {
+        "Acrobatics": 6,
+        "Arcana": 6,
+        "Athletics": 8,
+        "Bluff": 11,
+        "Diplomacy": 18,
+        "Dungeoneering": 12,
+        "Endurance": 8,
+        "Heal": 19,
+        "History": 6,
+        "Insight": 19,
+        "Intimidate": 11,
+        "Nature": 12,
+        "Perception": 12,
+        "Religion": 11,
+        "Stealth": 6,
+        "Streetwise": 11,
+        "Thievery": 6
+    },
+    "CompletedQuests": [
+        {
+            "Name": "Red Stone Mining",
+            "Summary": "You proved the sons of a mining baron in Broken Cart were running an illicit Red Stone mining operation."
+        }, {
+            "Name": "Kill Hatchling's Rival",
+            "Summary": "You defeated Amaneth, the upstart usurping dragon at Hatchling’s Keep."
+        }, {
+            "Name": "Defend Elsburg",
+            "Summary": "You foiled an ambush and lifted the siege on the town of Elsburg."
+        }, {
+            "Name": "Eliminate the Shadowed Daggers",
+            "Summary": "You showed evidence of the Shadowed Daggers’ discreet slaying to the Guild of Appraisers."
+        }, {
+            "Name": "Recover Santos’ Map",
+            "Summary": "You defeated Captain Brenth and recovered his map from Rath."
+        }, {
+            "Name": "Investigate The Missing Alchemists",
+            "Summary": "You discovered that alchemists had been abducted to build a giant warforged pirate ship, and destroyed it."
+        }, {
+            "Name": "Avenge The Sailor",
+            "Summary": "You helped your merchantmate avenge the death of a sailor."
+        }, {
+            "Name": "Rescue The Silent University",
+            "Summary": "You stopped the evil wizard and saved the students and faculty at the University of Caspania from a life of being books."
+        }, {
+            "Name": "Investigate The Secret Of The Runes",
+            "Summary": "You accompanied Professor Dusmo to the University of Caspania and studied the runes."
+        }, {
+            "Name": "Cross The Land Scar",
+            "Summary": "You fought your way across the landscar, vowing to simply take the cable car next time."
+        }, {
+            "Name": "Explore The Hydra’s Temple",
+            "Summary": "You killed a hydra in an abandoned temple and took its treasure."
+        }, {
+            "Name": "Assassinate A False Prophet",
+            "Summary": "You helped Jita assassinate the false prophet at the world’s end town of Argeliond."
+        }, {
+            "Name": "Travel To The Ebyan Monolith",
+            "Summary": "You travelled to the Ebyan Monolith and discovered that it, too, is falling apart."
+        }, {
+            "Name": "Capture A Twilight Pilgrim",
+            "Summary": "You subdued and captured a Twilight Pilgrim, then learned that the Twilight Pilgrims are trying to ensure the end of the world, and that they find your group a threat to that end. You ended his life."
+        }, {
+            "Name": "Investigate The City Of Airn",
+            "Summary": "You infiltrated the City of Airn and learned of Teraldor’s capture of the City by Marshal Draver."
+        }, {
+            "Name": "Kill Marshal Draver",
+            "Summary": "You helped kill Marshall Draver, and were made a Captain of the Lancers."
+        }, {
+            "Name": "Protect Eldendor And Caspania",
+            "Summary": "You pacified the King of Teraldor and convinced him to stop warring with the other nations. You were knighted by the Empress of the Realm."
+        }, {
+            "Name": "Find Sienna",
+            "Summary": "Sienna is now an agent of the Raven Queen, and has her memory back."
+        }, {
+            "Name": "Recover Santos' Soul",
+            "Summary": "You tricked the mad Captain Bjarne out of a soul gem belonging to Captain Santos."
+        }, {
+            "Name": "Cross The Gilgudda Passage",
+            "Summary": "After defeating the blue dracolich Nezzera, you crossed into the Captive Sea."
+        }, {
+            "Name": "Santos' Treasure",
+            "Summary": "After navigating an underground complex, you safely retrieved Captain Santos’ treasure, valued at over 60,000GP, without falling prey to his curse."
+        }, {
+            "Name": "Explore the Dwarven Fortress",
+            "Summary": "You explored an abandoned golem factory and fortress, and found within the mines a portal to the Shadowfell."
+        }
+    ],
+    "OngoingQuests": [
+        {
+            "Name": "Explore the Shadowfell",
+            "Summary": "Survive and learn about the Twilight Pilgrims, and find the Codex, within the Shadowfell."
+        }, {
+            "Name": "Travel To The Monoliths",
+            "Summary": "Travel to the edge of the mountains of Furst and to the wastelands of Zurin to inspect the monoliths there."
+        }, {
+            "Name": "Recover The Codex",
+            "Summary": "Recover the Codex Planorum, the manual of the planes."
+        }, {
+            "Name": "Investigate The Twilight Pilgrims",
+            "Summary": "Study the collection of notes concerning the Twilight Pilgrims."
+        }
+    ]
+}

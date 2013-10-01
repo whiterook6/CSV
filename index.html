@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Pacha Rossa</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div id="main_div">
+			<input type="file" id="fileData" value="Load a character sheet." />
+			<input type="text" id="search" />
+			<div id="cards">
+				<div class="card" id="tactics">
+					<div class="card_header">Basic Tactics</div>
+					<ul class="list">
+						<li>Move with center of the team</li>
+						<li>Downgrade when no attacks possible</li>
+						<li>Stay out of danger</li>
+						<li>Don’t react</li>
+						<li>Be aware of teammates’ health</li>
+						<li>Save non-damaging powers</li>
+						<li>Debuff solo monsters, and buff against group</li>
+					</ul>
+				</div>
+				<div class="card" id="Reminders">
+					<div class="card_header">Reminders</div>
+					<ul class="list">
+						<li>Fully heal before and after any combat.</li>
+						<li>Critical hits give an additional use of Healing Word (see Gambler’s Word).</li>
+						<li>Gain +4 to non-violent attacks by using an Action Point (see Peacemaker’s Action).</li>
+						<li>Extend effects with Peacemaker’s Pronouncement.</li>
+						<li>Action Points grant +2 to defenses (see Hero’s Armor)</li>
+						<li>Use Beacon of Hope early.</li>
+						<li>Use your Jade Macetail.</li>
+						<li>Do not downgrade your initiative.</li>
+					</ul>
+				</div>
+			</div>				
+		</div>
+		<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/packery.pkgd.min.js"></script>
+		<script type="text/javascript" src="js/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#fileData").change(function(event){
+		var elem=$(this).get();
+		var filename=elem[0].files[0],
+		    reader;
+
+		if (filename){
+			reader=new FileReader();
+			reader.onload=function(e){
+				buildCards(JSON.parse(e.target.result));
+			};
+			reader.readAsText(filename);
+		} else {
+			console.log("Cannot read character data from "+filename);
+		}
+	});
+});
+
+function buildCards(data){
+	function mapObjectToTable(label, object){
+		var div=d3.select("#cards").append("div").classed("card", true);
+		div.append("div").classed("card_header", true).text(label);
+
+		var rows=div.append("table").append("tbody")
+			.selectAll("tr")
+			.data(d3.entries(object)
+				.filter(function(d, i){
+					return d.value!=="";
+				}))
+				.enter()
+					.append("tr");
+
+		rows.append("td").classed("label", true).attr("width", "50%").text(function(d){
+			return d.key;
+		});
+		rows.append("td").classed("value", true).attr("width", "50%").text(function(d){
+			return d.value;
+		});
+	}
+
+	function buildFeats(feats){
+		var featDivs=d3.select("#cards").selectAll("div.feat").data(feats)
+			.enter().append("div").classed("feat", true).classed("card", true);
+		featDivs.append("div").classed("card_header", true).text(function(d){
+			return d.Name;
+		});
+		featDivs.append("ul").append("li").classed("effect", true).text(function(d){
+			if ("Short Description" in d){
+				return d["Short Description"];
+			} else {
+				return d.Description;
+			}
+		})
+	}
+
+	function buildPowers(powers){
+		var powerDivs=d3.select("#cards").selectAll("div.power").data(powers)
+			.enter().append("div").classed("power", true).classed("card", true);
+
+		var headers=powerDivs.append("div").classed("card_header", true);
+		headers.append("input").attr("type", "checkbox");
+		headers.append("span").text(function(d){
+			return d.Name;
+		});
+
+		powerDivs.append("div").text(function(d){
+			return d.Flavor;
+		});
+		powerDivs.selectAll("span.precondition").data(function(d){
+			return d3.entries(d).filter(function(attribute){
+				var inFilter=["Action", "Skill", "Target", "Frequency", "Range"].indexOf(attribute.key)>=0;
+				var notEmptyValue=attribute.value!=="";
+				var notStandard=attribute.value!=="Standard"
+				return inFilter && notEmptyValue && notStandard;
+			})
+		}).enter().append("span").classed("precondition", true).text(function(d){
+			return d.value;
+		});
+
+		powerDivs.selectAll("span.keyword").data(function(d){
+			return d.Keywords || [];
+		}).enter().append("span").classed("keyword", true).text(function(d){
+			return d;
+		});
+
+		powerDivs.selectAll("span.tag").data(function(d){
+			return d.Tags || [];
+		}).enter().append("span").classed("tag", true).text(function(d){
+			return d;
+		});
+
+
+		// second column: how-to use: attack, hit, various effects, etc.
+		powerDivs.append("ul").each(function(d, i){
+			function addRow(value, rowClass, elem){
+				if (value){
+					d3.select(elem).append("li").classed(rowClass, true).text(value);
+				}
+			}
+
+			function addRows(values, rowClass, elem){
+				if (values){
+					for (var i=0; i<values.length; i+=1){
+						d3.select(elem).append("li").classed(rowClass, true).text(values[i]);
+					}
+				}
+			}
+
+			addRow(d.Attack, "attack", this);
+			addRow(d.Check, "check", this);
+			addRow(d.Trigger, "trigger", this);
+			addRow(d.Hit, "hit", this);
+			addRow(d.Success, "success", this);
+			addRow(d.CriticalHit, "crit", this);
+			addRow(d.Miss, "miss", this);
+
+			addRows(d.HitEffects, "hitEffect", this);
+			addRows(d.CriticalHitEffects, "criticalHit", this);
+			addRows(d.MissEffects, "missEffect", this);
+			addRows(d.Effects, "effect", this);
+			addRows(d.Special, "special", this);
+		});
+	}
+
+	function reportQuests(_class, quests){
+		var questCards=d3.select("#cards").selectAll("div.quest."+_class)
+			.data(quests).enter()
+				.append("div").classed("card", true).classed("quest", true).classed(_class, true);
+
+		questCards.append("div").classed("card_header", true).text(function(d){
+			return d.Name;
+		});
+
+		questCards.append("div").text(function(d){
+			return d.Summary;
+		});
+	}
+
+	function buildMagicItems(items){
+		var itemCards=d3.select("#cards").selectAll("div.magicItem")
+			.data(items).enter()
+				.append("div").classed("card", true).classed("magicItem", true);
+		itemCards.append("div").classed("card_header", true).text(function(d){
+			return d.Name;
+		});
+		itemCards.append("ul").classed("list", true).selectAll("list").data(function(d){
+			return d3.entries(d).filter(function(attribute){
+				var inFilter=["Name", "Type", "Level", "Gold", "Flavor", "Power"].indexOf(attribute.key)>=0;
+				var notEmptyValue=attribute.value!=="";
+				return !inFilter && notEmptyValue;
+			});
+		}).enter().append("li").text(function(d){
+			return d.key+": "+d.value;
+		});
+		itemCards.each(function(d, i){
+			d3.select(this).append("div").text(function(d){
+				return d.Power;
+			});
+		});
+	}
+
+	mapObjectToTable("Abilities", data.Abilities);
+	mapObjectToTable("Pacha Rossa", data.Details);
+	mapObjectToTable("Defenses", data.Defenses);
+	mapObjectToTable("Skills", data.Skills);
+	mapObjectToTable("Agility", data.Agility);
+	mapObjectToTable("Items", data.Items);
+	mapObjectToTable("Liquor and Goblets", data.Liquor);
+
+	buildFeats(data.Feats);
+	buildPowers(data.Powers);
+	buildMagicItems(data["Magic Items"]);
+	reportQuests("completed", data["CompletedQuests"]);
+	reportQuests("ongoing", data["OngoingQuests"]);
+
+	$(".card").css("height", function(index, value){
+		var curHeight=$(this).height();
+		return Math.ceil((curHeight+6)/25)*25-6;
+	})
+
+	$("#cards").packery({
+		itemSelector: '.card',
+		gutter: 0,
+		columnWidth: 250,
+		transitionDuration: "0.2s"
+	});
+
+	$("#search").on("input", function(){
+		var cards=$("#cards .card");
+		var value=$(this).val().toLowerCase();
+		var terms=value.split(" ").filter(function(val, i, array){
+			return val.length >= 3;
+		});
+		var term;
+
+		if (terms.length<1){
+			cards.show();
+		} else {
+			cards.hide();
+			for (var i=0; i<terms.length; i+=1 ){
+				term=terms[i];
+				cards=cards.filter(function(){
+					return $(this).hasClass(term) || $(this).text().toLowerCase().indexOf(term)!==-1;
+				});
+			}
+			cards.show();
+		}
+
+		$("#cards").packery();
+	});
+
+	$(window).keyup(function(event){
+		if (event.keyCode===70){
+			$("#search").focus();
+			event.preventDefault();
+		}
+	});
+
+	$(".card .card_header input").click(function(event){
+		event.stopPropagation();
+	});
+
+	$(".card").click(function(event){
+		var elem=$(this);
+		elem.toggleClass("wide_card");
+
+		// reset its height
+		elem.css("height", "auto");
+		elem.css("height", function(index, value){
+			return Math.ceil($(this).height()/25)*25-6;
+		});
+
+		if (elem.position().left + elem.width() > $("#cards").width()){
+			elem.css("left", ($("#cards").width() - elem.width() - 6) + "px");
+		}
+
+		if (elem.hasClass("wide_card")){
+			$("#cards").packery("stamp", [this]);
+			$("#cards").packery();
+			$("#cards").packery("unstamp", [this]);
+		} else {
+			$("#cards").packery();
+		}
+	})
+}
+
+		</script>
+	</body>
+</html>
