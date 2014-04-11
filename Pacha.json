@@ -22,7 +22,7 @@
         "Company": "The Merchants of Mayhem",
         "Gender": "Male",
         "Height": "6'",
-        "Level": "14",
+        "Level": "15",
         "Player": "Tim Graboski",
         "Weight": "200lbs",
         "Paragon Path": "Messenger of Peace"
@@ -86,8 +86,10 @@
         }
     ],
     "Health": {
+        "Bloodied": 48,
         "Healing Surges": 9,
-        "Hit Points": 91
+        "Hit Points": 96,
+        "Surge Value": 24
     },
     "Items": {
         "Adventurer's Kit": "1, less the rope",
@@ -96,21 +98,22 @@
         "Silver Eagle Badge": 1,
         "Ritual Book": "1, 6 rituals.",
         "Ritual Components": "100GP",
-        "Bag of Hold Nuggets": "1, hidden",
+        "Bag of hold Nuggets": "1, hidden",
         "Phial of Residuum": "1, impure",
         "Phial of Gold Dust": "1",
         "Poison": "1 use",
         "Fine Clothing": "1 outfit",
         "Hydra Fangs": 2,
-        "Raven's Feather": "1, to the Shadowfell",
         "Jacket": "1, winter",
         "Phials": 5,
-        "Rations": "8 days",
-        "Gold": 13637
+        "Rations": "0 days",
+        "Gold": 13627
     },
     "Liquor": {
-        "Dwarven Whisky": "5 bottles, wicked old",
-        "Regular Whisky": "4 bottles, 1 gourd",
+        "Dwarven Whiskey": "5 bottles, wicked old",
+        "Regular Whiskey": "3 bottles, 1 gourd",
+        "Druegar Whiskey": "1 bottle, many lifetimes old",
+        "Foul Moonshine": "1 bottle",
         "Pimp Cup" : 1
     },
     "Magic Items": [
@@ -161,8 +164,30 @@
             "Range": "Melee",
             "Frequency": "At-Will",
             "Attack": "+16 vs. AC",
-            "Hit": "1d8+6 damage",
+            "Hit": "1d8+6 radiant damage",
             "CriticalHit": "14+3d6 damage",
+            "Flavor": "Your weapon flashes with divine light that sears your enemy and lifts your allies' hearts with renewed vigor and purpose.",
+            "HitEffects": ["One ally within 5 tiles of you gains 4 temporary hit points. If the ally is bloodied, he gains 9 temporary hit points instead."],
+            "Keywords": [
+                "Divine",
+                "Radiant",
+                "Weapon"
+            ],
+            "Tags" : ["Damaging", "Healing"],
+            "Name": "Strike of Hope",
+            "Target": "One creature",
+            "Weapon": "Holy Healer's Mace +3",
+            "Used": false
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Strength",
+            "Defense": "AC",
+            "Range": "Melee",
+            "Frequency": "At-Will",
+            "Attack": "+16 vs. AC",
+            "Hit": "1d8+6 damage",
+            "CriticalHit": "14 radiant damage + 3d6 damage",
             "Flavor": "You resort to the simple attack you learned when you first picked up a melee weapon.",
             "Keywords": [
                 "Weapon"
@@ -170,7 +195,8 @@
             "Tags" : ["Damaging"],
             "Name": "Melee Basic Attack",
             "Target": "One creature",
-            "Weapon": "Holy Healer's Mace +3"
+            "Weapon": "Holy Healer's Mace +3",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -188,7 +214,8 @@
             "Tags" : ["Damaging"],
             "Name": "Ranged Basic Attack",
             "Target": "One creature",
-            "Weapon": "Unarmed"
+            "Weapon": "Unarmed",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -210,7 +237,8 @@
             "Tags" : ["Debuffing", "Damaging"],
             "Name": "Visions of Blood",
             "Target": "Each creature in the blast",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Minor",
@@ -221,10 +249,11 @@
             "Keywords": [
                 "Healing"
             ],
-            "Tags" : ["Healing", "Buffing", "Peacemaker's Pronouncement", "Beacon of Hope"],
+            "Tags" : ["Healing", "Buffing", "Peacemaker's Pronouncement"],
             "Name": "Healing Word",
             "Special": ["You can use this power twice per encounter, but only once per round."],
-            "Target": "You or one ally in the burst"
+            "Target": "You or one ally in the burst",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -245,7 +274,8 @@
             "Tags" : ["Damaging", "Healing", "Saving Throws"],
             "Name": "Sacred Flame",
             "Target": "One creature",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Free",
@@ -256,7 +286,8 @@
                 "Healing"
             ],
             "Target": "Personal",
-            "Name": "Second Wind"
+            "Name": "Second Wind",
+            "Used": false
         },
         {
             "Action": "Free",
@@ -267,7 +298,8 @@
                 "Magic Item"
             ],
             "Tags" : ["Healing"],
-            "Name": "Hero's Armor"
+            "Name": "Hero's Armor",
+            "Used": false
         },
         {
             "Action": "Immediate Interrupt",
@@ -278,7 +310,8 @@
                 "Magic Item"
             ],
             "Tags" : ["Buffing"],
-            "Name": "Symbol of Unified Defense"
+            "Name": "Symbol of Unified Defense",
+            "Used": false
         },
         {
             "Action": "Minor",
@@ -288,7 +321,8 @@
                 "Magic Item"
             ],
             "Tags" : ["Healing"],
-            "Name": "Holy Healer's Weapon"
+            "Name": "Holy Healer's Weapon",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -308,7 +342,8 @@
             "Tags" : ["Debuffing", "Healing", "Saving Throws", "Peacemaker's Pronouncement"],
             "Name": "Hymn of Resurgence",
             "Target": "Each enemy in the blast",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -328,7 +363,8 @@
             "Tags" : ["Debuffing"],
             "Name": "Iron to Glass",
             "Target": "One enemy",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Minor",
@@ -339,10 +375,11 @@
                 "Divine",
                 "Healing"
             ],
-            "Tags" : ["Healing", "Beacon of Hope"],
+            "Tags" : ["Healing"],
             "Name": "Stream of Life",
             "Target": "Personal",
-            "Weapon": "Unarmed"
+            "Weapon": "Unarmed",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -358,7 +395,8 @@
             "Tags" : ["Death"],
             "Name": "Euthanasia",
             "Target": "One helpless or willing creature",
-            "Weapon": "Unarmed"
+            "Weapon": "Unarmed",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -374,28 +412,8 @@
             ],
             "Name": "Interrogation",
             "Target": "One creature",
-            "Weapon": "Various"
-        },
-        {
-            "Action": "Standard",
-            "Skill": "Wisdom",
-            "Defense": "Will",
-            "Range": "Close burst 3",
-            "Frequency": "Daily",
-            "Attack": "+16 vs. Will",
-            "CriticalHit": "2d6 damage",
-            "Effects": ["You and each ally in the burst regain 5 hit points.", "Until the end of the encounter, whenever you restore hit points with a healing power, the recipient regains 5 additional hit points."],
-            "Flavor": "You release a burst of divine energy that weakens your foes even as it heals your allies. The energy lingers within your holy symbol for a short time, improving your ability to heal your allies.",
-            "HitEffects": ["The target is weakened until the end of its next turn."],
-            "Keywords": [
-                "Divine",
-                "Healing",
-                "Implement"
-            ],
-            "Tags" : ["Healing", "Debuffing"],
-            "Name": "Beacon of Hope",
-            "Target": "Each enemy in the burst",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Various",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -415,7 +433,8 @@
             "Tags" : ["Damaging", "Peacemaker's Pronouncement"],
             "Name": "Rebuke Violence",
             "Target": "One creature",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -431,7 +450,8 @@
             "Tags" : ["Healing", "Peacemaker's Pronouncement"],
             "Name": "Healer's Mercy",
             "Target": "Each bloodied ally in the burst",
-            "Weapon": "Unarmed"
+            "Weapon": "Unarmed",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -443,10 +463,11 @@
                 "Divine",
                 "Healing"
             ],
-            "Tags" : ["Healing", "Buffing", "Peacemaker's Pronouncement", "Beacon of Hope"],
+            "Tags" : ["Healing", "Buffing", "Peacemaker's Pronouncement"],
             "Name": "Battle Surge",
             "Target": "You and each ally in the burst",
-            "Weapon": "Unarmed"
+            "Weapon": "Unarmed",
+            "Used": false
         },
         {
             "Action": "Immediate Interrupt",
@@ -458,11 +479,12 @@
                 "Divine",
                 "Healing"
             ],
-            "Tags" : ["Beacon of Hope", "Life"],
+            "Tags" : ["Life"],
             "Name": "Return from Death's Door",
             "Target": "The triggering ally",
             "Trigger": "An ally within 20 squares of you fails a death saving throw",
-            "Weapon": "Unarmed"
+            "Weapon": "Unarmed",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -481,7 +503,8 @@
             "Tags" : ["Debuffing"],
             "Name": "Pacify",
             "Target": "One creature",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Minor",
@@ -496,7 +519,8 @@
             "Tags" : ["Buffing", "Peacemaker's Pronouncement"],
             "Name": "Favor of the Gods",
             "Special": ["You can use only one channel divinity power per encounter."],
-            "Target": "One creature in the burst"
+            "Target": "One creature in the burst",
+            "Used": false
         },
         {
             "Action": "Minor",
@@ -508,7 +532,8 @@
                 "Divine"
             ],
             "Name": "Peacemaker's Pronouncement",
-            "Target": "One creature in the burst"
+            "Target": "One creature in the burst",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -529,7 +554,8 @@
             "Tags" : ["Debuffing", "Healing", "Peacemaker's Pronouncement"],
             "Name": "Remorse",
             "Target": "Each enemy",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -546,10 +572,11 @@
                 "Healing",
                 "Implement"
             ],
-            "Tags" : ["Beacon of Hope", "Peacemaker's Pronouncement", "Healing", "Debuffing"],
+            "Tags" : ["Peacemaker's Pronouncement", "Healing", "Debuffing"],
             "Name": "Astral Seal",
             "Target": "One creature",
-            "Weapon": "Symbol of Unified Defense +2"
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         },
         {
             "Action": "Standard",
@@ -561,7 +588,33 @@
                 "Divine"
             ],
             "Name": "Prophetic Guidance",
-            "Target": "One enemy"
+            "Target": "One enemy",
+            "Used": false
+        },
+        {
+            "Action": "Standard",
+            "Skill": "Wisdom",
+            "Defense": "Fortitude",
+            "Range": "Close burst 3",
+            "Frequency": "Daily",
+            "Attack": "+16 vs Fortitude",
+            "CriticalHit": "2d6 damage",
+            "Effects": ["The burst creates a zone of bright light that lasts until the end of the encounter. When you move, the zone moves with you, remaining centered on you. Any ally who begins his or her turn within the zone deals 2d6 extra radiant damage with melee or ranged attacks until the start of his or her next turn."],
+            "Flavor": "Awful brilliance flashes from your eyes, blinding foes and inspiring allies.",
+            "HitEffects": ["The target is blinded (save ends)."],
+            "Keywords": [
+                "Divine",
+                "Implement",
+                "Radiant",
+                "Zone"
+            ],
+            "Tags": ["Buffing", "Debuffing"],
+            "Level": "15",
+            "Name": "Brilliant Censure",
+            "Power Type": "Attack",            
+            "Target": "Each enemy in the burst",
+            "Weapon": "Symbol of Unified Defense +2",
+            "Used": false
         }
     ],
     "Rituals": [
@@ -594,7 +647,7 @@
         {
             "Category": "Exploration",
             "Component Cost": "10 gp",
-            "Description": " You purify a volume of water. The amount of water you can purify is determined by the result of your Arcana check, Nature check, or Religion check. <table>Skill Check Result Amount of Water 9 or lower 1 square 10-19 2 squares 20-34 4 squares 35 or higher 10 squares</table> ",
+            "Description": " You purify a volume of water. The amount of water you can purify is determined by the result of your Arcana check, Nature check, or Religion check. <table>Skill Check Result Amount of Water 9 or lower 1 square 10\u00e2\u0080\u009319 2 squares 20\u00e2\u0080\u009334 4 squares 35 or higher 10 squares</table> ",
             "Duration": "Instantaneous",
             "Flavor": "The lake, tainted by a now-dead demon that laired in its depths, becomes crystal clear and refreshing to drink.",
             "Key Skill": "Arcana or Nature or Religion",
@@ -633,7 +686,7 @@
         {
             "Category": "Scrying",
             "Component Cost": "250 gp",
-            "Description": " You are able to perceive the environment around an animate undead creature. The target creature must be within 5 squares of you during the entire time necessary to perform the ritual. For the ritual's duration, you can spend a standard action to use the affected creature's senses. You use your Perception modifier when you do so. While sensing through the undead, you cannot use your own senses and are considered blind and deaf. You can end the effect as a free action. If the undead creature is destroyed, the ritual ends immediately. Your Arcana check determines the maximum distance at which you can receive sensory input from the target creature. <table>Arcana Check Result Duration 19 or lower 1 mile 20-29 3 miles 30-39 6 miles 40 or higher 10 miles</table> Sufficiently powerful warding magic (such as a Forbiddance ritual) prevents you from receiving sensory input from a creature as long as it is within the warded area. Treat the undead creature as a scrying sensor for such purposes. ",
+            "Description": " You are able to perceive the environment around an animate undead creature. The target creature must be within 5 squares of you during the entire time necessary to perform the ritual. For the ritual's duration, you can spend a standard action to use the affected creature's senses. You use your Perception modifier when you do so. While sensing through the undead, you cannot use your own senses and are considered blind and deaf. You can end the effect as a free action. If the undead creature is destroyed, the ritual ends immediately. Your Arcana check determines the maximum distance at which you can receive sensory input from the target creature. <table>Arcana Check Result Duration 19 or lower 1 mile 20\u00e2\u0080\u009329 3 miles 30\u00e2\u0080\u009339 6 miles 40 or higher 10 miles</table> Sufficiently powerful warding magic (such as a Forbiddance ritual) prevents you from receiving sensory input from a creature as long as it is within the warded area. Treat the undead creature as a scrying sensor for such purposes. ",
             "Duration": "24 hours",
             "Flavor": "You recite a funeral dirge, infusing a zombie with necromantic energy. Now, you can spy through the eyes of your undead minion.",
             "Key Skill": "Arcana",
