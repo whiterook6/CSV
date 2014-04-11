@@ -3,13 +3,26 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Pacha Rossa</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
 		<div id="main_div">
-			<input type="file" id="fileData" value="Load a character sheet." />
+			<input type="file" id="fileData"/>
 			<input type="text" id="search" />
 			<div id="cards">
+				<div class="card control">
+					<div class="card_header">Current Effects</div>
+					<ul class="list" id="current_effects_ul">
+						<li id="add_effect">Add effect</li>
+					</ul>
+				</div>
+				<div class="card control">
+					<div class="card_header">Reset Usage</div>
+					<ul class="list">
+						<li><input type="submit" id="resetEncounters" value="Short Rest" /></li>
+						<li><input type="submit" id="resetDailies" value="Extended Rest" /></li>
+					</ul>
+				</div>
 				<div class="card" id="tactics">
 					<div class="card_header">Basic Tactics</div>
 					<ul class="list">
@@ -30,22 +43,21 @@
 						<li>Gain +4 to non-violent attacks by using an Action Point (see Peacemaker’s Action).</li>
 						<li>Extend effects with Peacemaker’s Pronouncement.</li>
 						<li>Action Points grant +2 to defenses (see Hero’s Armor)</li>
-						<li>Use Beacon of Hope early.</li>
 						<li>Use your Jade Macetail.</li>
 						<li>Do not downgrade your initiative.</li>
 					</ul>
 				</div>
 			</div>				
 		</div>
-		<script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
-		<script type="text/javascript" src="js/packery.pkgd.min.js"></script>
-		<script type="text/javascript" src="js/d3.v3.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="packery.pkgd.min.js"></script>
+		<script type="text/javascript" src="d3.v3.min.js" charset="utf-8"></script>
 		<script type="text/javascript">
 
 $(document).ready(function(){
 	$("#fileData").change(function(event){
-		var elem=$(this).get();
-		var filename=elem[0].files[0],
+		var elem=$(this).get(),
+		    filename=elem[0].files[0],
 		    reader;
 
 		if (filename){
@@ -57,12 +69,28 @@ $(document).ready(function(){
 		} else {
 			console.log("Cannot read character data from "+filename);
 		}
+
+		$(this).remove();
 	});
+
+
 });
 
 function buildCards(data){
+	var d3cards=d3.select("#cards");
+
+	function repackCard(elem){
+		// reset its height
+		elem.css("height", "auto");
+		elem.css("height", function(index, value){
+			return Math.ceil($(this).height()/25)*25-6;
+		});
+
+		$("#cards").packery();
+	}
+
 	function mapObjectToTable(label, object){
-		var div=d3.select("#cards").append("div").classed("card", true);
+		var div=d3cards.append("div").classed("card", true);
 		div.append("div").classed("card_header", true).text(label);
 
 		var rows=div.append("table").append("tbody")
@@ -71,8 +99,7 @@ function buildCards(data){
 				.filter(function(d, i){
 					return d.value!=="";
 				}))
-				.enter()
-					.append("tr");
+				.enter().append("tr");
 
 		rows.append("td").classed("label", true).attr("width", "50%").text(function(d){
 			return d.key;
@@ -83,7 +110,7 @@ function buildCards(data){
 	}
 
 	function buildFeats(feats){
-		var featDivs=d3.select("#cards").selectAll("div.feat").data(feats)
+		var featDivs=d3cards.selectAll("div.feat").data(feats)
 			.enter().append("div").classed("feat", true).classed("card", true);
 		featDivs.append("div").classed("card_header", true).text(function(d){
 			return d.Name;
@@ -98,18 +125,20 @@ function buildCards(data){
 	}
 
 	function buildPowers(powers){
-		var powerDivs=d3.select("#cards").selectAll("div.power").data(powers)
+		var powerDivs=d3cards.selectAll("div.power").data(powers)
 			.enter().append("div").classed("power", true).classed("card", true);
 
 		var headers=powerDivs.append("div").classed("card_header", true);
-		headers.append("input").attr("type", "checkbox");
+		var checkboxes=headers.append("input").classed("used", true).attr("type", "checkbox");
+
+		checkboxes.select(function(d, i){
+			return d.Used ? this : null;;
+		}).attr("checked", "checked");
+
 		headers.append("span").text(function(d){
 			return d.Name;
 		});
 
-		powerDivs.append("div").text(function(d){
-			return d.Flavor;
-		});
 		powerDivs.selectAll("span.precondition").data(function(d){
 			return d3.entries(d).filter(function(attribute){
 				var inFilter=["Action", "Skill", "Target", "Frequency", "Range"].indexOf(attribute.key)>=0;
@@ -167,7 +196,7 @@ function buildCards(data){
 	}
 
 	function reportQuests(_class, quests){
-		var questCards=d3.select("#cards").selectAll("div.quest."+_class)
+		var questCards=d3cards.selectAll("div.quest."+_class)
 			.data(quests).enter()
 				.append("div").classed("card", true).classed("quest", true).classed(_class, true);
 
@@ -181,7 +210,7 @@ function buildCards(data){
 	}
 
 	function buildMagicItems(items){
-		var itemCards=d3.select("#cards").selectAll("div.magicItem")
+		var itemCards=d3cards.selectAll("div.magicItem")
 			.data(items).enter()
 				.append("div").classed("card", true).classed("magicItem", true);
 		itemCards.append("div").classed("card_header", true).text(function(d){
@@ -203,24 +232,28 @@ function buildCards(data){
 		});
 	}
 
+
 	mapObjectToTable("Abilities", data.Abilities);
 	mapObjectToTable("Pacha Rossa", data.Details);
 	mapObjectToTable("Defenses", data.Defenses);
+	mapObjectToTable("Healing", data.Health);
 	mapObjectToTable("Skills", data.Skills);
 	mapObjectToTable("Agility", data.Agility);
 	mapObjectToTable("Items", data.Items);
 	mapObjectToTable("Liquor and Goblets", data.Liquor);
 
-	buildFeats(data.Feats);
 	buildPowers(data.Powers);
-	buildMagicItems(data["Magic Items"]);
-	reportQuests("completed", data["CompletedQuests"]);
-	reportQuests("ongoing", data["OngoingQuests"]);
+	buildFeats(data.Feats);
+	//buildMagicItems(data["Magic Items"]);
+	//reportQuests("completed", data["CompletedQuests"]);
+	//reportQuests("ongoing", data["OngoingQuests"]);
 
-	$(".card").css("height", function(index, value){
-		var curHeight=$(this).height();
-		return Math.ceil((curHeight+6)/25)*25-6;
-	})
+	$(".value").attr("contenteditable", true);
+
+//	$(".card").css("height", function(index, value){
+//		var curHeight=$(this).height();
+//		return Math.ceil((curHeight+6)/25)*25-6;
+//	});
 
 	$("#cards").packery({
 		itemSelector: '.card',
@@ -229,13 +262,30 @@ function buildCards(data){
 		transitionDuration: "0.2s"
 	});
 
-	$("#search").on("input", function(){
-		var cards=$("#cards .card");
-		var value=$(this).val().toLowerCase();
-		var terms=value.split(" ").filter(function(val, i, array){
-			return val.length >= 3;
+	$("li#add_effect").on("click", function(){
+		var newLI=d3.select("ul#current_effects_ul")
+			.insert("li", "li#add_effect");
+
+		newLI.insert("img").attr("src", "icon-delete.png").on("click", function(d, i){
+			newLI.remove();
+			repackCard($("div.card#current_effects"));
 		});
-		var term;
+
+		newLI.insert("span").text("new effect").attr("contenteditable", "true").on("input", function(d, i){
+			repackCard($("div.card#current_effects"));
+		});
+		
+		repackCard($("div.card#current_effects"));
+	});
+
+	$("#search").on("input", function(){
+		var cards=$("#cards .card"),
+		    value=$(this).val().toLowerCase(),
+		    terms=value.split(" ").filter(function(val, i, array){
+				return val.length >= 3 || (val.indexOf("-")==0 && val.length >=4);
+			}),
+			term,
+			exclude;
 
 		if (terms.length<1){
 			cards.show();
@@ -243,8 +293,25 @@ function buildCards(data){
 			cards.hide();
 			for (var i=0; i<terms.length; i+=1 ){
 				term=terms[i];
+				if (term.indexOf("-")==0){
+					term=term.substring(1);
+					exclude=true;
+				} else {
+					exclude=false;
+				}
+
 				cards=cards.filter(function(){
-					return $(this).hasClass(term) || $(this).text().toLowerCase().indexOf(term)!==-1;
+					if ($(this).hasClass("control")){
+						return true;
+					}
+
+					var data=d3.select(this).datum();
+					if (exclude){
+						return !($(this).hasClass(term)) && $(this).text().toLowerCase().indexOf(term)===-1;
+					} else{
+						return $(this).hasClass(term) || $(this).text().toLowerCase().indexOf(term)!==-1;
+					}
+					
 				});
 			}
 			cards.show();
@@ -254,7 +321,7 @@ function buildCards(data){
 	});
 
 	$(window).keyup(function(event){
-		if (event.keyCode===70){
+		if (event.keyCode===70 && event.ctrlKey && event.shiftKey){
 			$("#search").focus();
 			event.preventDefault();
 		}
@@ -264,27 +331,42 @@ function buildCards(data){
 		event.stopPropagation();
 	});
 
-	$(".card").click(function(event){
-		var elem=$(this);
+	$(".card .card_header").click(function(event){
+		var elem=$(this).parent(".card");
 		elem.toggleClass("wide_card");
 
 		// reset its height
 		elem.css("height", "auto");
-		elem.css("height", function(index, value){
-			return Math.ceil($(this).height()/25)*25-6;
-		});
+//		elem.css("height", function(index, value){
+//			return Math.ceil($(this).height()/25)*25-6;
+//		});
 
 		if (elem.position().left + elem.width() > $("#cards").width()){
 			elem.css("left", ($("#cards").width() - elem.width() - 6) + "px");
 		}
 
 		if (elem.hasClass("wide_card")){
-			$("#cards").packery("stamp", [this]);
+			$("#cards").packery("stamp", elem);
 			$("#cards").packery();
-			$("#cards").packery("unstamp", [this]);
+			$("#cards").packery("unstamp", elem);
 		} else {
 			$("#cards").packery();
 		}
+	});
+
+	function reset(frequency){
+		d3.selectAll("div.power").select(function(d, i){
+			return d.Frequency === frequency ? this : null;
+		}).selectAll("input.used").property("checked", false);
+	}
+
+	$("#resetDailies").click(function(){
+		reset("Encounter");
+		reset("Daily");
+	});
+
+	$("#resetEncounters").click(function(){
+		reset("Encounter");
 	})
 }
 
